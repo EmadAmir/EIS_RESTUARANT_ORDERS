@@ -22,7 +22,7 @@ namespace RestaurantOrder
            // Form1 WelcomeForm = new Form1();
             Form2 SelectUser = new Form2();
             //WelcomeForm.Close();
-            SelectUser.ShowDialog();
+            SelectUser.Show();
             Visible = false;
            
 
