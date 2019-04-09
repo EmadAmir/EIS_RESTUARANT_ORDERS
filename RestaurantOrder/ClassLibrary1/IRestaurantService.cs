@@ -11,7 +11,9 @@ namespace RestaurantService
     [ServiceContract(Name = "ABCD")]
     public interface IRestaurantServices
     {
+        //[OperationContract]
+        //string GetMessage(string name);
         [OperationContract]
-        string GetMessage(string name);
+        void SaveDetails(Restaurant Restaurant);
     }
 }
