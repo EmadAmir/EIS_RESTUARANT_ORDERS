@@ -10,7 +10,7 @@ namespace RestaurantService
     {
         private string _name;
         private string _gender;
-        private DateTime _dataOfBirth;
+        private DateTime _dateOfBirth;
 
         public string Name
         {
@@ -24,7 +24,7 @@ namespace RestaurantService
         }
         public DateTime DateOfBirth
         {
-            get { return _dataOfBirth;}
+            get { return _dateOfBirth;}
             set { _dateOfBirth = value; }
         }
     }

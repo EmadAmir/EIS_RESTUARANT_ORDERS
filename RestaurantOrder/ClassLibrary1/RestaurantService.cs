@@ -18,12 +18,33 @@ namespace RestaurantService
         //{
         //    return "Hello " + name;
         //}
-        public void SaveDetails(Restaurant Restaurant)
+        public void SaveDetails(Restaurant restaurant)
         {
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
             {
-                SqlCommand cmd = new SqlCommand("sp")
+                SqlCommand cmd = new SqlCommand("spSaveRestaurantCustomer", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter parameterName = new SqlParameter
+                {
+                    ParameterName = "@Name",
+                    Value = restaurant.Name
+                };
+                cmd.Parameters.Add(parameterName);
+                SqlParameter parameterGender = new SqlParameter
+                {
+                    ParameterName = "@Gender",
+                    Value = restaurant.Gender
+                };
+                cmd.Parameters.Add(parameterGender);
+                SqlParameter parameterDateOfBirth = new SqlParameter
+                {
+                    ParameterName = "@DateOfBirth",
+                    Value = restaurant.DateOfBirth
+                };
+                cmd.Parameters.Add(parameterDateOfBirth);
+                con.Open();
+                cmd.ExecuteNonQuery();
             }
             
         }
