@@ -8,10 +8,10 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace RestaurantService
+namespace RestaurantWCFService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "RestaurantServiceWCF" in both code and config file together.
-    public class RestaurantService : IRestaurantServices
+    public class RestaurantService : IRestaurantWCFService
     {
       
         //public string GetMessage(string name)

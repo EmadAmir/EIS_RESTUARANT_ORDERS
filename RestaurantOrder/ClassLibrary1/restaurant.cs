@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantService
+namespace RestaurantWCFService
 {
     public class Restaurant
     {

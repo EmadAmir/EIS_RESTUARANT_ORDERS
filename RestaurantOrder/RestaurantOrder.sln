@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantService", "ClassLibrary1\RestaurantService.csproj", "{35CF24B1-1AFE-43F5-B005-9C4E59E46719}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantWCFService", "ClassLibrary1\RestaurantWCFService.csproj", "{35CF24B1-1AFE-43F5-B005-9C4E59E46719}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantServiceHost", "RestaurantServiceHost\RestaurantServiceHost.csproj", "{AC9F4A59-74F4-48C3-BF3B-8872D8BF80A1}"
 EndProject

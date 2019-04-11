@@ -11,7 +11,7 @@ namespace RestaurantServiceHost
     {
         static void Main()
         {
-            using (ServiceHost host = new ServiceHost(typeof(RestaurantService.RestaurantService)))
+            using (ServiceHost host = new ServiceHost(typeof(RestaurantWCFService.RestaurantService)))
             {
                 host.Open();
                 Console.WriteLine("Host has started @ " + DateTime.Now.ToString());

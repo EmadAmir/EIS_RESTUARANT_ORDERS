@@ -46,9 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Restaurant.cs" />
-    <Compile Include="IRestaurantService.cs" />
+    <Compile Include="IRestaurantWCFService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RestaurantService.cs" />
+    <Compile Include="RestaurantWCFService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

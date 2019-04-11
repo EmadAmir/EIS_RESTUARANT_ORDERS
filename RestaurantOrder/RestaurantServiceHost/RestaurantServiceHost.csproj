@@ -56,9 +56,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\RestaurantService.csproj">
+    <ProjectReference Include="..\ClassLibrary1\RestaurantWCFService.csproj">
       <Project>{35cf24b1-1afe-43f5-b005-9c4e59e46719}</Project>
-      <Name>RestaurantService</Name>
+      <Name>RestaurantWCFService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
