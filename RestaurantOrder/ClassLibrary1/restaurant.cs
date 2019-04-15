@@ -11,6 +11,8 @@ namespace RestaurantWCFService
         private string _name;
         private string _gender;
         private DateTime _dateOfBirth;
+        private int _contactNumber;
+        private string _menu;
 
         public string Name
         {
@@ -27,5 +29,16 @@ namespace RestaurantWCFService
             get { return _dateOfBirth;}
             set { _dateOfBirth = value; }
         }
+        public int ContactNumber
+        {
+            get { return _contactNumber; }
+            set { _contactNumber = value; }
+        }
+        public string Menu
+        {
+            get { return _menu; }
+            set { _menu = value; }
+        }
+
     }
 }

@@ -20,8 +20,8 @@ namespace RestaurantWCFService
         //}
         public void SaveDetails(Restaurant restaurant)
         {
-            string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(cs))
+            //string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(@"Data Source = DESKTOP-75OND6D\EMADSQL;Initial Catalog=RestaurantDetails; User Id = sa ; Password= 123456"))
             {
                 SqlCommand cmd = new SqlCommand("spSaveRestaurantCustomer", con);
                 cmd.CommandType = CommandType.StoredProcedure;
