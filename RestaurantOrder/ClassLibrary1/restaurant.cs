@@ -44,7 +44,7 @@ namespace RestaurantWCFService
             get { return _flag; }
             set { _flag = value; }
         }
-        public string P_assword
+        public string Password
         {
             get { return _password; }
             set { _password = value; }

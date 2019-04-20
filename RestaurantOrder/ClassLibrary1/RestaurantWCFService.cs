@@ -75,7 +75,7 @@ namespace RestaurantWCFService
                 SqlParameter parameterPassword = new SqlParameter
                 {
                     ParameterName = "Password",
-                    Value = restaurant.P_assword
+                    Value = restaurant.Password
                 };
                 cmd.Parameters.Add(parameterPassword);
                 con.Open();
