@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,16 +11,18 @@ namespace RestaurantWCFService
 {
     public class Restaurant
     {
-        private string _name;
+        private string _Name;
         private string _gender;
         private DateTime _dateOfBirth;
-        private int _contactNumber;
-        private string _menu;
+        private long _contactNumber;
+        private int _flag;
+        private string _password;
+
 
         public string Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get { return _Name; }
+            set { _Name = value; }
         }
         public string Gender
         {
@@ -29,16 +34,33 @@ namespace RestaurantWCFService
             get { return _dateOfBirth;}
             set { _dateOfBirth = value; }
         }
-        public int ContactNumber
+        public long ContactNumber
         {
             get { return _contactNumber; }
             set { _contactNumber = value; }
         }
-        public string Menu
+        public int Flag
         {
-            get { return _menu; }
-            set { _menu = value; }
+            get { return _flag; }
+            set { _flag = value; }
+        }
+        public string P_assword
+        {
+            get { return _password; }
+            set { _password = value; }
         }
 
+    }
+    [DataContract]
+    public class RestaurantData
+    {
+        public RestaurantData()
+        {
+            this.RestaurantsTable = new DataTable("RestaurantsData");
+
+        }
+
+        [DataMember]
+        public DataTable RestaurantsTable { get; set; }
     }
 }

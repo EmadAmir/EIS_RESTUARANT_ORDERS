@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Configuration;
 
 namespace RestaurantWCFService
 {
@@ -11,9 +13,14 @@ namespace RestaurantWCFService
     [ServiceContract]
     public interface IRestaurantWCFService
     {
-        //[OperationContract]
-        //string GetMessage(string name);
         [OperationContract]
+        //string GetMessage(string name);
+      
         void SaveDetails(Restaurant Restaurant);
+        [OperationContract]
+        RestaurantData GetMenu();
+        [OperationContract]
+        Restaurant Login();
     }
+   
 }
