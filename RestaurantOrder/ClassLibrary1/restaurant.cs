@@ -14,10 +14,12 @@ namespace RestaurantWCFService
         private string _Name;
         private string _gender;
         private DateTime _dateOfBirth;
-        private long _contactNumber;
-        private int _flag;
-        private string _password;
+       // private string _password;
+        public string Psw { get; set; }
+        public int flag { get; set; }
 
+
+       
 
         public string Name
         {
@@ -34,21 +36,8 @@ namespace RestaurantWCFService
             get { return _dateOfBirth;}
             set { _dateOfBirth = value; }
         }
-        public long ContactNumber
-        {
-            get { return _contactNumber; }
-            set { _contactNumber = value; }
-        }
-        public int Flag
-        {
-            get { return _flag; }
-            set { _flag = value; }
-        }
-        public string Password
-        {
-            get { return _password; }
-            set { _password = value; }
-        }
+       
+
 
     }
     [DataContract]

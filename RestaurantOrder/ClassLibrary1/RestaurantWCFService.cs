@@ -7,6 +7,7 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.Sql;
 
 namespace RestaurantWCFService
 {
@@ -36,86 +37,59 @@ namespace RestaurantWCFService
             }
         }
 
-
-        //public string GetMessage(string name)
-        //{
-        //    return "Hello " + name;
-        //}
-        public void SaveDetails(Restaurant restaurant)
+        public void Login(Restaurant restaurant)
         {
-            //string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(@"Data Source = DESKTOP-75OND6D\EMADSQL;Initial Catalog=RestaurantDetails; User Id = sa ; Password= 123456"))
             {
-                SqlCommand cmd = new SqlCommand("spSaveRestaurantCustomer", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                SqlParameter parameterName = new SqlParameter
-                {
-                    ParameterName = "@Name",
-                    Value = restaurant.Name
-                };
-                cmd.Parameters.Add(parameterName);
-                SqlParameter parameterGender = new SqlParameter
-                {
-                    ParameterName = "@Gender",
-                    Value = restaurant.Gender
-                };
-                cmd.Parameters.Add(parameterGender);
-                SqlParameter parameterDateOfBirth = new SqlParameter
-                {
-                    ParameterName = "@DateOfBirth",
-                    Value = restaurant.DateOfBirth
-                };
-                cmd.Parameters.Add(parameterDateOfBirth);
-                SqlParameter parameterNum = new SqlParameter
-                {
-                    ParameterName = "@ContactNumber",
-                    Value = restaurant.ContactNumber
-                };
-                cmd.Parameters.Add(parameterNum);
-                SqlParameter parameterPassword = new SqlParameter
-                {
-                    ParameterName = "Password",
-                    Value = restaurant.Password
-                };
-                cmd.Parameters.Add(parameterPassword);
+                SqlCommand cmd;
                 con.Open();
-                cmd.ExecuteNonQuery();
+                string s = "select CustomerName,Password from tblCustomer where CustomerName ='"+restaurant.Name+"' and Password ='"+restaurant.Psw+"' ";
+                cmd = new SqlCommand(s, con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    restaurant.flag = 1;
+                }
+                else
+                {
+                    restaurant.flag = 0;
+                }
+                
+                con.Close();
+
             }
-
-
         }
 
-        public Restaurant Login()
+        public void SaveDetails(Restaurant r)
         {
-            
-            SqlConnection con = new SqlConnection(@"Data Source = DESKTOP-75OND6D\EMADSQL;Initial Catalog=RestaurantDetails; User Id = sa ; Password= 123456");
 
-            SqlCommand cmd = new SqlCommand("spLogin", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlParameter sqlpName = new SqlParameter();
-            //sqlpName.ParameterName = "@Name";
-            //sqlpName.Value = rest.CustomerName;
-            //SqlParameter sqlpContact = new SqlParameter();
-            //cmd.Parameters.Add(sqlpContact);
-            //sqlpContact.ParameterName = "@Number";
-            //sqlpContact.Value = rest.ContactNumber;
-            //cmd.Parameters.Add(sqlpName);
-            con.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            //while (reader.Read())
-            //{
-            //    rest.Name = reader["CustomerName"].ToString();
-            //    rest.ContactNumber = Convert.ToInt32(reader["ContactNumber"]);
-            //}
-            //return rest;
-            Restaurant re = new Restaurant();
-            if (reader.HasRows == true)
+            using (SqlConnection con = new SqlConnection(@"Data Source = DESKTOP-75OND6D\EMADSQL;Initial Catalog=RestaurantDetails; User Id = sa ; Password= 123456"))
             {
-                re.Flag = 1;
+                    SqlCommand cmd;
+                    con.Open();
+                    string s = "insert into tblCustomer values(@CustomerName,@CustomerGender,@Password)";
+                    cmd = new SqlCommand(s, con);
+                    cmd.Parameters.AddWithValue("@CustomerName",   r.Name );
+                    cmd.Parameters.AddWithValue("@CustomerGender", r.Gender);
+                    cmd.Parameters.AddWithValue("@Password", r.Psw);
+              
+                    cmd.CommandType = CommandType.Text;
+                
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                 
+                }
+
+
+
             }
-            return re;
+
+
         }
-
-
     }
-}
+
+
+    
+

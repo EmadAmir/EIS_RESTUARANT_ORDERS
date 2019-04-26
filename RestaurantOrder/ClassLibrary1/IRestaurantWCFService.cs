@@ -20,7 +20,9 @@ namespace RestaurantWCFService
         [OperationContract]
         RestaurantData GetMenu();
         [OperationContract]
-        Restaurant Login();
+        void Login(Restaurant restaurant);
+        //[OperationContract]
+        //void SaveName(Restaurant r);
     }
    
 }
