@@ -48,9 +48,10 @@ namespace RestaurantWCFService
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
+            
                 if (dt.Rows.Count > 0)
                 {
-                    restaurant.flag = 1;
+                   restaurant.flag = 1;
                 }
                 else
                 {
