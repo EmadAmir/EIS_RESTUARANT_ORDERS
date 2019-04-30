@@ -18,11 +18,11 @@ namespace RestaurantWCFService
       
         void SaveDetails(Restaurant Restaurant);
         [OperationContract]
-        RestaurantData GetMenu();
+        void GetMenu();
         [OperationContract]
-        void Login(Restaurant restaurant);
-        //[OperationContract]
-        //void SaveName(Restaurant r);
+        int Login(Restaurant restaurant);
+        [OperationContract]
+        void insertmenu(Restaurant r);
     }
    
 }

@@ -16,7 +16,12 @@ namespace RestaurantWCFService
         private DateTime _dateOfBirth;
        // private string _password;
         public string Psw { get; set; }
-        public int flag { get; set; }
+        public int F { get; set; }
+        public int price { get; set; }
+        public int quantity { get; set; }
+        public string items { get; set; }
+        public string DName { get; set; }
+        public double DCost { get; set; }
 
 
        
@@ -40,16 +45,5 @@ namespace RestaurantWCFService
 
 
     }
-    [DataContract]
-    public class RestaurantData
-    {
-        public RestaurantData()
-        {
-            this.RestaurantsTable = new DataTable("RestaurantsData");
-
-        }
-
-        [DataMember]
-        public DataTable RestaurantsTable { get; set; }
-    }
+   
 }
